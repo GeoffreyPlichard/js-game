@@ -20,11 +20,20 @@
   require(['graphics'], function(graphics) {
 
     graphics.load(function(){
-		require(['config', 'utils', 'canvas'], function(config, utils, canvas) {
+		require(['config', 'utils', 'canvas', 'game'], function(config, utils, canvas, Game) { // All is loaded
       
-		  var img = graphics.get('player_ship');
-		  console.log(img, canvas, canvas.context);
-		  canvas.context.drawImage(img, 0, 0);
+			var gameObject = new Game;
+			gameObject.init();
+			
+			// Create game loop
+			function gameloop(){
+				requestAnimationFrame(gameloop);
+				
+				gameObject.update();
+				gameObject.render();
+			}
+			
+			gameloop();
 
 		});
 	});
