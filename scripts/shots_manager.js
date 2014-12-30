@@ -1,4 +1,4 @@
-define(['shot'], function(Shot){
+define(['shot', 'canvas'], function(Shot, canvas){
 	'use strict';
 	
 	function ShotsManager(){
@@ -10,9 +10,18 @@ define(['shot'], function(Shot){
 	};
 	
 	ShotsManager.prototype.update = function(){
+		var shot;
 		for(var i=0, len = this.shots.length; i < len; ++i ){
-			this.shots[i].update();
+			shot = this.shots[i];
+			shot.update();
+			
+			// Delete shots if is out of the stage
+			if(shot.y > canvas.height || shot.y  + shot.height < 0 || shot.x + shot.width < 0 || shot.x > canvas.width){
+				this.shots.splice(i, 1);
+				len--;
+			}
 		}
+		console.info(this.shots.length);
 	};
 	
 	ShotsManager.prototype.render = function(){

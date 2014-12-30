@@ -4,5 +4,6 @@ define({
     width : 1000,
     height : 600
   },
-  nbStars: 100
+  nbStars: 100,
+  enemiesDelay: 5000
 });
