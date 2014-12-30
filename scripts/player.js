@@ -9,7 +9,7 @@ define(['graphics', 'canvas', 'controls'], function(graphics, canvas, controls){
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.speed = 5;
+		this.speed = 10;
 		this.img = null;
 	}
 	
@@ -18,16 +18,20 @@ define(['graphics', 'canvas', 'controls'], function(graphics, canvas, controls){
 	};
 	
 	Player.prototype.update = function(){
-		if(controls.keyboard.down){
+		this.move();
+	};
+	
+	Player.prototype.move = function(){
+		if(controls.keyboard.down && this.y + this.height < canvas.height){
 			this.y += this.speed;
 		}
-		if(controls.keyboard.up){
+		if(controls.keyboard.up && this.y > 0){
 			this.y -= this.speed;
 		}
-		if(controls.keyboard.left){
+		if(controls.keyboard.left && this.x > 0){
 			this.x -= this.speed;
 		}
-		if(controls.keyboard.right){
+		if(controls.keyboard.right && this.x + this.width < canvas.width){
 			this.x += this.speed;
 		}
 	};

@@ -1,7 +1,8 @@
 define({
   gameRoot : "#game-root",
   screen : {
-    width : window.innerWidth,
-    height : window.innerHeight
-  }
+    width : 1000,
+    height : 600
+  },
+  nbStars: 100
 });
