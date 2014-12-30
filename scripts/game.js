@@ -1,7 +1,7 @@
 /*
 * ['file name'] (returned object name)
 */
-define(['player'], function(Player){
+define(['player', 'controls'], function(Player, controls){
 	'use strict';
 	
 	function Game(){
@@ -9,7 +9,7 @@ define(['player'], function(Player){
 	}
 	
 	Game.prototype.init = function(){
-		this.player = new Player(0, 0, 128, 128);
+		this.player = new Player(0, 0, controls.width, controls.height);
 		this.player.init();
 	};
 	

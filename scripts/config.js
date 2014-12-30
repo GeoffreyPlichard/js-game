@@ -1,7 +1,7 @@
 define({
   gameRoot : "#game-root",
   screen : {
-    width : 414,
-    height : 736
+    width : window.innerWidth,
+    height : window.innerHeight
   }
 });

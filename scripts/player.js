@@ -9,7 +9,7 @@ define(['graphics', 'canvas', 'controls'], function(graphics, canvas, controls){
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.speed = 2;
+		this.speed = 5;
 		this.img = null;
 	}
 	
